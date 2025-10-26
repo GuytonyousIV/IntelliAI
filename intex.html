@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pantex IntelliAI Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>INTELLIAI Dashboard</h1>
+    <p>Utilities and Operations Center</p>
+  </header>
+
+  <nav>
+    <button class="tab-button active" data-tab="alerts">Alerts Dashboard</button>
+    <button class="tab-button" data-tab="assigned">Assigned Alerts</button>
+    <button class="tab-button" data-tab="solutions">Suggested Solutions</button>
+    <button class="tab-button" data-tab="maintenance">Predictive Maintenance</button>
+  </nav>
+
+  <main>
+    <!-- Alerts Tab -->
+    <section id="alerts" class="tab-content active">
+      <h2>Active Alerts</h2>
+      <table id="alertTable">
+        <thead>
+          <tr>
+            <th class="sortable" data-field="time">Time</th>
+            <th>Alert Code</th>
+            <th class="sortable" data-field="severity">Severity</th>
+            <th>Facility</th>
+            <th>Unit</th>
+            <th>Alert Title</th>
+            <th>Description</th>
+            <th>Assign</th>
+            <th>Completed</th>
+          </tr>
+        </thead>
+        <tbody id="alertBody"></tbody>
+      </table>
+    </section>
+
+    <!-- Assigned Alerts Tab -->
+    <section id="assigned" class="tab-content">
+      <h2>Assigned Alerts</h2>
+      <table id="assignedTable">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Code</th>
+            <th>Severity</th>
+            <th>Facility</th>
+            <th>Unit</th>
+            <th>Title</th>
+            <th>Assigned To</th>
+            <th>AI Suggestion</th>
+          </tr>
+        </thead>
+        <tbody id="assignedBody"></tbody>
+      </table>
+    </section>
+
+    <!-- AI Fix Side Panel -->
+    <aside id="aiPanel" class="side-panel">
+      <div class="panel-header">
+        <h3 id="aiPanelTitle">AI Fix Assistant</h3>
+        <button id="closePanel">&times;</button>
+      </div>
+      <div id="aiPanelContent">
+        <p>Select an assigned alert to view AI fix recommendations.</p>
+      </div>
+    </aside>
+
+    <!-- Assignment Modal -->
+    <div id="assignModal" class="modal">
+      <div class="modal-content">
+        <h3>Assign Alert</h3>
+        <p id="assignAlertTitle"></p>
+        <input type="text" id="staffName" placeholder="Enter staff member name" />
+        <div class="modal-buttons">
+          <button id="confirmAssign">Assign</button>
+          <button id="cancelAssign">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
